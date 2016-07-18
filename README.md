@@ -24,7 +24,7 @@ npm install markdown2json --save
 
 * **dir**: String. directory to loop
 * **domain**: String. http(s) domain to concat to the path
-* **no_content**: Boolean. if false, it won't add the md to the json if the content is empty
+* **index_empty_content**: Boolean. if false, it won't add the md to the json if the content is empty
 * **excludes**: Array of strings. Paths to avoid in the indexing
 
 
@@ -52,7 +52,7 @@ where "options" is a json with the following options:
 			{
 				"dir" : "./content",
 				"domain" : "http://yourdomain.com",
-				"no_content" : false, //if md content == "", is not indexed
+				"index_empty_content" : false, //if md content == "", is not indexed
 				"excludes" : [
 					"/path1/path2",
 					"/path4"
@@ -68,7 +68,7 @@ where "options" is a json with the following options:
 				  if(err===null){
 					console.log("published!");
 					algolia.deleteByQuery({
-					  filters: 'indexTime<' + idx[0].indexTime
+					  filters: 'NOT indexKey:"' + idx[0].indexKey + '"'
 					}, function(err) {
 						if (!err) {
 						    console.log('old records deleted');
