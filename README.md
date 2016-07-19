@@ -27,6 +27,7 @@
 * **dir**: String. directory to loop
 * **index_empty_content**: Boolean. If false, it won't add the md to the json if the content is empty. Default is true.
 * **cleanMD**: Boolean. If true, cleans markdown characters from content. Default is false.
+* **removeProps**: Array. Remove props from the Front Matter of the returned md.
 * **excludes**: Array of strings. Paths to avoid in the indexing
 
 ## Parser
@@ -63,6 +64,8 @@ Parsed object include:
 				"dir" : "./content",
 				"domain" : "http://yourdomain.com",
 				"index_empty_content" : false, //if md content == "", is not indexed
+				"cleanMD" : true,
+				"removeProps" : ["image"],
 				"excludes" : [
 					"/path1/path2",
 					"/path4"
