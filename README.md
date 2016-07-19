@@ -4,11 +4,11 @@
 
 * Later, you can inject the json into algolia search.
 
-* It accepts yaml or toml front matters.
+* It accepts YAML or TOML front matters.
 
 # Install
 
-npm install markdown2json --save
+		npm install markdown2json --save
 
 # Usage
 
@@ -25,9 +25,9 @@ npm install markdown2json --save
 
 
 * **dir**: String. directory to loop
-* **index_empty_content**: Boolean. if false, it won't add the md to the json if the content is empty
+* **index_empty_content**: Boolean. If false, it won't add the md to the json if the content is empty. Default is true.
+* **cleanMD**: Boolean. If true, cleans markdown characters from content. Default is false.
 * **excludes**: Array of strings. Paths to avoid in the indexing
-
 
 ## Parser
 
@@ -37,8 +37,8 @@ npm install markdown2json --save
 
 where "options" is a json with the following options:
 
-* **dir**: String. directory to replace the path with the domain
-* **domain**: String. http(s) domain to concat to the path
+* **dir**: String. directory to replace and leave only relative path
+* **cleanMD**: Boolean. if true, cleans markdown characters from content. Default is false
 
 ## Parsed objects
 
@@ -97,7 +97,7 @@ Parsed object include:
 
 		parser("./content/markdownfile.md", {
 			"dir" : "./content",
-			"domain" : "http://yourdomain.com",
+			"cleanMD" : true,
 		}).then(
 			function(jsonObj){
 				console.log(jsonObj)
