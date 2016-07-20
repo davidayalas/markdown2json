@@ -27,6 +27,7 @@
 * **dir**: String. directory to loop
 * **index_empty_content**: Boolean. If false, it won't add the md to the json if the content is empty. Default is true.
 * **cleanMD**: Boolean. If true, cleans markdown characters from content. Default is false.
+* **excludeIfProps** : Array. Excludes the document from index if a property exists.
 * **removeProps**: Array. Remove props from the Front Matter of the returned md.
 * **excludes**: Array of strings. Paths to avoid in the indexing
 
@@ -40,6 +41,7 @@ where "options" is a json with the following options:
 
 * **dir**: String. directory to replace and leave only relative path
 * **cleanMD**: Boolean. if true, cleans markdown characters from content. Default is false
+* **removeProps**: Array. Remove props from the Front Matter of the returned md.
 
 ## Parsed objects
 
@@ -64,6 +66,7 @@ Parsed object include:
 				"dir" : "./content",
 				"domain" : "http://yourdomain.com",
 				"index_empty_content" : false, //if md content == "", is not indexed
+				"excludeIfProps" : ["my_custom_prop"],
 				"cleanMD" : true,
 				"removeProps" : ["image"],
 				"excludes" : [
@@ -77,6 +80,7 @@ Parsed object include:
 			function(idx){
 				console.log(idx.length + " documents indexed");
 				console.log("publishing to algolia...");
+
 				algolia.saveObjects(idx, function(err, content) {
 				  if(err===null){
 					console.log("published!");
@@ -91,6 +95,7 @@ Parsed object include:
 				  	console.error(err);
 				  }
 				});
+
 			}	
 		)
 
