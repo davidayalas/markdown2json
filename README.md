@@ -24,7 +24,8 @@
 "options" is a json with the following options:
 
 
-* **dir**: String. directory to loop
+* **dir**: String. directory to loop and/or substitute in the path attribute generated in the parsed md file.
+* **fileList** : Array. Array of files (paths) to index.
 * **index_empty_content**: Boolean. If false, it won't add the md to the json if the content is empty. Default is true.
 * **cleanMD**: Boolean. If true, cleans markdown characters from content. Default is false.
 * **excludeIfProps** : Array. Excludes the document from index if a property exists.
@@ -48,7 +49,7 @@ where "options" is a json with the following options:
 Parsed object include:
 
 - all the metadata in the front matter
-- path: filepath without the root dir
+- path: filepath without the root dir, if present
 - objectID: base64 encoded path
 - content, if exists
 - indexTime: time in millis of the indexation
