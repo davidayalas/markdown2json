@@ -1,6 +1,6 @@
 {
   "name": "markdown2json",
-  "version": "0.0.9",
+  "version": "0.2",
   "description": "creates a json index from markdown content directory (static search generators)",
   "main": "index.js",
   "author": "davixyz@gmail.com",
