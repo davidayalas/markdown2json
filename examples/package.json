@@ -1,0 +1,12 @@
+{
+  "name": "indexer-sample",
+  "version": "0.0.1",
+  "description": "",
+  "main": "indexer.js",
+  "dependencies": {
+    "algoliasearch": "^3.22.1",
+    "markdown2json": "*",
+    "request": "^2.76.0",
+    "azure-search" : "^0.0.17"    
+  }
+}
